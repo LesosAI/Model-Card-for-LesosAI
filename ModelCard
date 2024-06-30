@@ -1,0 +1,71 @@
+Model Card for Generative Map Model
+This model takes user input and generates maps and relevant assets for DoD applications.
+
+Model Details
+Model Description
+This model uses natural language processing and OpenAI's generative model to create asset's for plannning and mission analysis. This model uses natural language processing (NLP) and computer vision techniques to generate detailed DoD plan maps from textual descriptions. It leverages a transformer-based architecture to understand the text input and create corresponding visual content suitable for mission planning and analysis.
+
+Developed by: LesosAI
+Model type: Transformer-based Generative Model
+Language(s) (NLP): English
+License: Open AI API Terms Of Service
+
+Uses
+Direct Use
+Generating detailed DoD plan maps from textual descriptions for mission planning and analysis.
+
+Out-of-Scope Use
+Not suitable for use with highly classified or sensitive information without proper oversight and validation.
+
+Bias, Risks, and Limitations
+The model may generate biased or inappropriate content based on the training data. It might not perform well with highly ambiguous or overly detailed descriptions. There is also a risk of generating incorrect or misleading map information if the input descriptions are not precise.
+
+Recommendations
+Users (both direct and downstream) should be made aware of the risks, biases, and limitations of the model. It is recommended to implement moderation and review processes to ensure the accuracy and appropriateness of the generated maps. The higher quality references for the model to use, the lower the risks and limitations will be.
+
+How to Get Started with the Model
+Use the code below to get started with the model, this is a framework and does not necesarily reflect the final product
+
+# Example code to get started with the DALL-E DoD plan map generator model
+
+import openai
+
+openai.api_key = 'your-api-key'
+
+response = openai.Image.create(
+  prompt="A detailed military base layout with barracks, command center, and training grounds",
+  n=1,
+  size="1024x1024"
+)
+
+image_url = response['data'][0]['url']
+print(image_url)
+
+
+Training Details
+Training Data
+The model was trained on a large dataset of images and corresponding textual descriptions relevant to DoD planning and military scenarios.
+
+Training Hyperparameters
+Training regime: Fine-tuning a transformer-based model with a large-scale dataset of text-image pairs specific to military planning and analysis.
+Speeds, Sizes, Times [optional]: Training takes several weeks on multiple high-performance GPUs.
+
+Evaluation
+Testing Data, Factors & Metrics
+Testing Data
+The model was tested on a separate dataset of text-image pairs related to DoD planning and mission analysis.
+
+Factors
+Factors include the accuracy of map details, diversity of descriptions, and the variability of visual content.
+
+Metrics
+Metrics used include the Inception Score (IS), Frechet Inception Distance (FID), and human evaluation for subjective quality assessment and accuracy in military contexts.
+
+Results
+The model achieved a high Inception Score (IS) and a low Frechet Inception Distance (FID), indicating good quality and diversity in generated maps. Human evaluators also confirmed the model's usefulness in generating relevant and accurate DoD plan maps.  These maps can be further tuned by a human or further use of the model through curated prompts.
+
+Summary
+The model generates high-quality DoD plan maps from textual descriptions but has limitations in handling highly classified or sensitive information. There are risks of generating biased or inappropriate content, and it is recommended to have robust validation mechanisms in place.
+
+Model Card Contact
+Contact Lesos AI, LLC at bmccorkle@lesos.io or 615-920-9472.
